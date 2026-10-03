@@ -1,0 +1,7 @@
+@use "tokens/colors";
+
+:root {
+ @each $role, $value in colors.$semantic {
+   --color-#{$role}: #{$value};
+ }
+}

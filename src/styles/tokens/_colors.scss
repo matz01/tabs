@@ -1,11 +1,17 @@
 // Color tokens
 //
 // Two levels:
-// 1. $palette   — primitives: what a color IS.
-// 2. $semantic  — roles: what a color is FOR. Each role points to a primitive
-//                 by name. Components ONLY ever use semantic tokens.
+// 1. $-palette — primitives: what a color IS.
+//                PRIVATE: the leading "-" makes it inaccessible outside this
+//                module, so components cannot use a raw color by mistake.
+// 2. $-roles   — semantic roles: what a color is FOR, each pointing to a
+//                primitive by name.
+//
+// The only public output is $semantic: every role resolved to its value.
 
-$palette: (
+@use "sass:map";
+
+$-palette: (
   "white": #ffffff,
   "gray-50": #f4f5f9,
   "gray-100": #efeff5,
@@ -17,21 +23,27 @@ $palette: (
   "salmon-300": #ffb7aa,
 );
 
-$semantic: (
+$-roles: (
   // Text
   "text-primary": "gray-900",
   "text-inverse": "white",
 
-  // Surfaces
-  "surface-default": "white",
-  "surface-hover": "gray-50",
-  "surface-active": "gray-100",
-  "surface-inverse": "gray-900",
-  "surface-inverse-hover": "gray-800",
-  "surface-inverse-active": "gray-700",
+  // Borders and focus
+  "border-subtle": "gray-300",
+  "border-strong": "gray-900",
+  "focus-ring": "gray-900",
 
   // Feedback (Badge)
   "feedback-neutral-bg": "gray-100",
   "feedback-positive-bg": "mint-300",
   "feedback-negative-bg": "salmon-300",
 );
+
+$semantic: ();
+
+@each $role, $ref in $-roles {
+  @if not map.has-key($-palette, $ref) {
+    @error "Unknown primitive '#{$ref}' for role '#{$role}'";
+  }
+  $semantic: map.set($semantic, $role, map.get($-palette, $ref));
+}
