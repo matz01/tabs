@@ -1,0 +1,37 @@
+// Color tokens
+//
+// Two levels:
+// 1. $palette   — primitives: what a color IS.
+// 2. $semantic  — roles: what a color is FOR. Each role points to a primitive
+//                 by name. Components ONLY ever use semantic tokens.
+
+$palette: (
+  "white": #ffffff,
+  "gray-50": #f4f5f9,
+  "gray-100": #efeff5,
+  "gray-300": #d9d9e1,
+  "gray-700": #4c5364,
+  "gray-800": #2b3343,
+  "gray-900": #171f2d,
+  "mint-300": #97fdc4,
+  "salmon-300": #ffb7aa,
+);
+
+$semantic: (
+  // Text
+  "text-primary": "gray-900",
+  "text-inverse": "white",
+
+  // Surfaces
+  "surface-default": "white",
+  "surface-hover": "gray-50",
+  "surface-active": "gray-100",
+  "surface-inverse": "gray-900",
+  "surface-inverse-hover": "gray-800",
+  "surface-inverse-active": "gray-700",
+
+  // Feedback (Badge)
+  "feedback-neutral-bg": "gray-100",
+  "feedback-positive-bg": "mint-300",
+  "feedback-negative-bg": "salmon-300",
+);
