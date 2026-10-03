@@ -5,3 +5,8 @@
    --color-#{$role}: #{$value};
  }
 }
+
+// Fonts
+@use "@fontsource/inter/400.css";
+@use "@fontsource/inter/600.css";
+@use "@fontsource/inter/700.css";
