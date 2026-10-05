@@ -13,4 +13,6 @@ describe("Badge", () => {
         expect(screen.getByTestId('badge-123')).toHaveAttribute("data-variant", variant)
     });
 
+
+
 })

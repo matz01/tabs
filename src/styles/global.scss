@@ -1,12 +1,30 @@
 @use "tokens/colors";
+@use "tokens/typography";
+@use "tokens/spacing";
+
+@use "@fontsource/inter/400.css" as inter-400;
+@use "@fontsource/inter/600.css" as inter-600;
+@use "@fontsource/inter/700.css" as inter-700;
 
 :root {
- @each $role, $value in colors.$semantic {
-   --color-#{$role}: #{$value};
- }
+  @each $role, $value in colors.$semantic {
+    --color-#{$role}: #{$value};
+  }
+
+  --font-family-base: #{typography.$font-family-base};
+
+  @each $name, $value in typography.$font-size {
+    --font-size-#{$name}: #{$value};
+  }
+  @each $name, $value in typography.$line-height {
+    --line-height-#{$name}: #{$value};
+  }
+  @each $name, $value in typography.$font-weight {
+    --font-weight-#{$name}: #{$value};
+  }
+
+  @each $name, $value in spacing.$space {   // ← manca
+    --space-#{$name}: #{$value};
+  }
 }
 
-// Fonts
-@use "@fontsource/inter/400.css";
-@use "@fontsource/inter/600.css";
-@use "@fontsource/inter/700.css";
