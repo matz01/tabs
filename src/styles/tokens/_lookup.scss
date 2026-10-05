@@ -1,0 +1,9 @@
+@use "sass:map";
+
+// Returns var(--<prefix>-<name>), failing the build if the token doesn't exist.
+@function lookup($map, $name, $prefix) {
+  @if not map.has-key($map, $name) {
+    @error "Unknown #{$prefix} token '#{$name}'. Available: #{map.keys($map)}";
+  }
+  @return var(--#{$prefix}-#{$name});
+}

@@ -11,7 +11,9 @@
     --color-#{$role}: #{$value};
   }
 
-  --font-family-base: #{typography.$font-family-base};
+  @each $name, $value in typography.$font-family {
+    --font-family-#{$name}: #{$value};
+  }
 
   @each $name, $value in typography.$font-size {
     --font-size-#{$name}: #{$value};

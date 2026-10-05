@@ -1,7 +1,11 @@
 // Typography tokens
 // global.scss turns them into CSS custom properties.
 
-$font-family-base: Inter;
+@use "lookup" as *;
+
+$font-family: (
+        "base": (Inter, sans-serif),
+);
 
 $font-size: (
         "body-m": 14px,
@@ -17,3 +21,19 @@ $font-weight: (
         "semibold": 600,
         "bold": 700,
 );
+
+@function font-family($name) {
+  @return lookup($font-family, $name, "font-family");
+}
+
+@function font-size($name) {
+  @return lookup(font-size, $name, "font-size");
+}
+
+@function line-height($name) {
+  @return lookup(line-height, $name, "line-height");
+}
+
+@function font-weight($name) {
+  @return lookup(font-weight, $name, "font-weight");
+}

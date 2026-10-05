@@ -11,6 +11,8 @@
 
 @use "sass:map";
 
+@use "lookup" as *;
+
 $-palette: (
   "white": #ffffff,
   "gray-50": #f4f5f9,
@@ -46,4 +48,9 @@ $semantic: ();
     @error "Unknown primitive '#{$ref}' for role '#{$role}'";
   }
   $semantic: map.set($semantic, $role, map.get($-palette, $ref));
+}
+
+// Public API for components: role name → var(--color-<role>)
+@function color($role) {
+  @return lookup($semantic, $role, "color");
 }

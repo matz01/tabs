@@ -1,7 +1,8 @@
 @use "../../styles/tokens/spacing" as *;
+@use "../../styles/tokens/typography" as *;
 
 .badge {
-  font-family: var(--font-family-base), sans-serif;
+  font-family: font-family("base"), sans-serif;
 
   display: inline-flex;
   align-items: center;
