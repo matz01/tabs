@@ -4,7 +4,7 @@
 @use "lookup" as *;
 
 $font-family: (
-        "base": (Inter, sans-serif),
+        "base": (Inter),
 );
 
 $font-size: (
@@ -27,13 +27,13 @@ $font-weight: (
 }
 
 @function font-size($name) {
-  @return lookup(font-size, $name, "font-size");
+  @return lookup($font-size, $name, "font-size");
 }
 
 @function line-height($name) {
-  @return lookup(line-height, $name, "line-height");
+  @return lookup($line-height, $name, "line-height");
 }
 
 @function font-weight($name) {
-  @return lookup(font-weight, $name, "font-weight");
+  @return lookup($font-weight, $name, "font-weight");
 }

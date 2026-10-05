@@ -1,5 +1,4 @@
-@use "../../styles/tokens/spacing" as *;
-@use "../../styles/tokens/typography" as *;
+@use "tokens" as *;
 
 .badge {
   font-family: font-family("base"), sans-serif;
