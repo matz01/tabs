@@ -72,7 +72,7 @@ Rules:
 
 - **Use the functions, never `var(--…)` directly.** An unknown token name
   fails the build with the list of valid names; a raw `var()` with a typo
-  fails silently in the browser. A test enforces this on every
+  fails silently in the browser.
   `*.module.scss`.
 - **Colors are roles, not raw values.** `color()` only accepts semantic
   roles; the palette is private to `_colors.scss`.
