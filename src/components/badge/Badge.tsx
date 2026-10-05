@@ -1,12 +1,12 @@
 import styles from './Badge.module.scss';
-import React from "react";
+import {ComponentPropsWithoutRef} from "react";
 
 export type BadgeVariant = "neutral" | "positive" | "negative";
 
 type BadgeProps = {
     label: string,
     variant?: BadgeVariant,
-} & Omit<React.ComponentPropsWithoutRef<"span">, "children">;
+} & Omit<ComponentPropsWithoutRef<"span">, "children">;
 
 export const Badge = ({label, variant = "neutral", className, ...rest}: BadgeProps) => {
     return (
