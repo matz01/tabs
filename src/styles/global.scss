@@ -23,7 +23,7 @@
     --font-weight-#{$name}: #{$value};
   }
 
-  @each $name, $value in spacing.$space {   // ← manca
+  @each $name, $value in spacing.$space {
     --space-#{$name}: #{$value};
   }
 }
