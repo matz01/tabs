@@ -1,0 +1,30 @@
+@use "../../styles/tokens/spacing" as *;
+
+.badge {
+  font-family: var(--font-family-base) sans-serif;
+
+  display: inline-flex;
+  align-items: center;
+  padding: space("3xs") space("2xs");
+  border-radius: space("2xs");
+
+  font-size: var(--font-size-body-s);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-body);
+  color: var(--color-text-primary);
+  white-space: nowrap;
+
+  background-color: var(--color-feedback-neutral-bg);
+
+  &[data-variant="positive"] {
+    background-color: var(--color-feedback-positive-bg);
+  }
+
+  &[data-variant="negative"] {
+    background-color: var(--color-feedback-negative-bg);
+  }
+
+  @media (max-width: 768px) {
+    padding-block: space("4xs");
+  }
+}
