@@ -1,19 +1,18 @@
 import styles from './Badge.module.scss';
+import React from "react";
 
-interface BadgeProps {
+export type BadgeVariant = "neutral" | "positive" | "negative";
+
+type BadgeProps = {
     label: string,
-    id: string
-    variant?:
-        | "neutral"
-        | "positive"
-        | "negative",
-}
+    variant?: BadgeVariant,
+} & Omit<React.ComponentPropsWithoutRef<"span">, "children">;
 
-export const Badge = ({label, id, variant = "neutral"}: BadgeProps) => {
+export const Badge = ({label, variant = "neutral", className, ...rest}: BadgeProps) => {
     return (
         <span
-            className={styles.badge}
-            data-testid={`badge-${id}`}
+            {...rest}
+            className={[styles.badge, className].filter(Boolean).join(" ")}
             data-variant={variant}
         >
             {label}
