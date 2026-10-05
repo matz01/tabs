@@ -34,9 +34,9 @@ export const Negative: Story = {
 export const AllVariants: Story = {
     render: (args) => (
         <div style={{display: "flex", gap: 8}}>
-            <Badge {...args} label={"warning"} />
-            <Badge {...args} label={"positive"} />
-            <Badge {...args} label={"negative"} />
+            <Badge {...args} variant="neutral" label="neutral" />
+            <Badge {...args} variant="positive" label="positive" />
+            <Badge {...args} variant="negative" label="negative" />
         </div>
     )
 }
