@@ -4,7 +4,7 @@
 @use "lookup" as *;
 
 $font-family: (
-        "base": (Inter),
+        "base": (Inter, sans-serif),
 );
 
 $font-size: (

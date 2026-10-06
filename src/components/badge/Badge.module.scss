@@ -1,7 +1,8 @@
 @use "tokens" as *;
 
 .badge {
-  font-family: font-family("base"), sans-serif;
+  // biome-ignore lint/<categoria>/noMissingGenericFamilyKeyword: the generic fallback is part of the token (Inter, sans-serif)
+  font-family: font-family("base");
 
   display: inline-flex;
   align-items: center;
