@@ -3,7 +3,7 @@ import styles from "./Badge.module.scss";
 
 export type BadgeVariant = "neutral" | "positive" | "negative";
 
-type BadgeProps = {
+export type BadgeProps = {
   label: string;
   variant?: BadgeVariant;
 } & Omit<ComponentPropsWithoutRef<"span">, "children">;
