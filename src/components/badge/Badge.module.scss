@@ -9,20 +9,20 @@
   padding: space("3xs") space("2xs");
   border-radius: space("2xs");
 
-  font-size: var(--font-size-body-s);
-  font-weight: var(--font-weight-semibold);
-  line-height: var(--line-height-body);
-  color: var(--color-text-primary);
+  font-size: font-size("body-s");
+  font-weight: font-weight("semibold"); //var(--font-weight-semibold);
+  line-height: line-height("body"); //var(--line-height-body);
+  color: color("text-primary"); //var(--color-text-primary);
   white-space: nowrap;
 
-  background-color: var(--color-feedback-neutral-bg);
+  background-color: color("feedback-neutral-bg"); //var(--color-feedback-neutral-bg);
 
   &[data-variant="positive"] {
-    background-color: var(--color-feedback-positive-bg);
+    background-color: color("feedback-positive-bg"); //var(--color-feedback-positive-bg);
   }
 
   &[data-variant="negative"] {
-    background-color: var(--color-feedback-negative-bg);
+    background-color: color("feedback-negative-bg"); //var(--color-feedback-negative-bg);
   }
 
   @media (max-width: 768px) {
