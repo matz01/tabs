@@ -6,15 +6,23 @@ import {
   useMemo,
   useState,
 } from "react";
+import { cx } from "../../utils/cx";
 import styles from "./Tabs.module.scss";
-
 import { TabsContext, type TabsVariant } from "./TabsContext";
 
-export type TabsProps = {
-  value?: string; // controlled
-  defaultValue?: string; // uncontrolled
+type selectionProps =
+  | {
+      value: string;
+      defaultValue?: never;
+    }
+  | {
+      defaultValue: string;
+      value?: never;
+    };
+
+export type TabsProps = selectionProps & {
   onValueChange?: (value: string) => void;
-  variant?: TabsVariant; // default: "pill"
+  variant?: TabsVariant;
   children: ReactNode;
 } & Omit<ComponentPropsWithoutRef<"div">, "defaultValue" | "onChange">;
 
@@ -28,17 +36,18 @@ export const Tabs = ({
   ...rest
 }: TabsProps) => {
   const baseId = useId();
-  const [internalValue, setInternalValue] = useState<string>();
+  const [internalValue, setInternalValue] = useState(defaultValue);
 
   const isControlled = value !== undefined;
   const selectedValue = isControlled ? value : internalValue;
 
   const select = useCallback(
     (next: string) => {
+      if (next === selectedValue) return;
       if (!isControlled) setInternalValue(next);
       onValueChange?.(next);
     },
-    [isControlled, onValueChange],
+    [selectedValue, isControlled, onValueChange],
   );
 
   const contextValue = useMemo(
@@ -48,7 +57,7 @@ export const Tabs = ({
 
   return (
     <TabsContext value={contextValue}>
-      <div {...rest} className={[styles.tabs, className].join(" ")} data-variant={variant}>
+      <div {...rest} className={cx(styles.tabs, className)} data-variant={variant}>
         {children}
       </div>
     </TabsContext>

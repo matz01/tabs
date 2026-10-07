@@ -1,3 +1,131 @@
-.tabs{
+@use "tokens" as *;
+@use "breakpoints" as *;
 
+.tabs {
+  // biome-ignore lint/suspicious/noMissingGenericFamilyKeyword: the generic fallback is part of the token
+  font-family: font-family("base");
+  color: color("text-primary");
+}
+
+.tablist {
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  scrollbar-width: none;
+
+  &[data-variant="pill"] {
+    gap: space("xs");
+
+    @include mobile {
+      gap: space("2xs");
+    }
+  }
+
+  &[data-variant="underline"] {
+    gap: space("xl");
+
+    @include mobile {
+      gap: space("l");
+    }
+  }
+}
+
+.tab {
+  appearance: none;
+  margin: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: space("2xs");
+  min-height: 50px;
+  white-space: nowrap;
+
+  font-size: font-size("body-m");
+  font-weight: font-weight("semibold");
+  line-height: line-height("body");
+
+  &:focus-visible {
+    outline: 2px solid color("focus-ring");
+    outline-offset: 2px;
+  }
+
+  @include mobile {
+    min-height: 42px;
+  }
+}
+
+.tab[data-variant="pill"] {
+  padding-inline: space("s");
+  border: 1px solid color("border-subtle");
+  border-radius: 999px;
+  background-color: color("surface");
+
+  &:hover {
+    background-color: color("surface-hover");
+  }
+
+  &:active {
+    background-color: color("surface-pressed");
+  }
+
+  &[aria-selected="true"] {
+    border-color: color("interactive-strong");
+    background-color: color("interactive-strong");
+    color: color("text-inverse");
+
+    &:hover {
+      border-color: color("interactive-strong-hover");
+      background-color: color("interactive-strong-hover");
+    }
+
+    &:active {
+      border-color: color("interactive-strong-pressed");
+      background-color: color("interactive-strong-pressed");
+    }
+  }
+
+  @include mobile {
+    padding-inline: space("xs");
+  }
+}
+
+.tab[data-variant="underline"] {
+  padding-inline: 0;
+  border-radius: space("3xs");
+
+  .label {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset-inline: 0;
+      bottom: calc(-1 * #{space("2xs")});
+      height: 2px;
+      border-radius: 1px;
+      background-color: transparent;
+    }
+  }
+
+  &:hover .label::after,
+  &:active .label::after {
+    background-color: color("border-subtle");
+  }
+
+  &[aria-selected="true"] .label::after {
+    background-color: color("border-strong");
+  }
+}
+
+.panel {
+  &:focus-visible {
+    outline: 2px solid color("focus-ring");
+    outline-offset: 2px;
+  }
 }
