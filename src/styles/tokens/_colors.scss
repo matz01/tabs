@@ -39,6 +39,14 @@ $-roles: (
   "feedback-neutral-bg": "gray-100",
   "feedback-positive-bg": "mint-300",
   "feedback-negative-bg": "salmon-300",
+
+  // Interactive surfaces
+  "surface": "white",
+  "surface-hover": "gray-50",
+  "surface-pressed": "gray-100",
+  "interactive-strong": "gray-900",
+  "interactive-strong-hover": "gray-800",
+  "interactive-strong-pressed": "gray-700",
 );
 
 $semantic: ();

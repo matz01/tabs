@@ -2,7 +2,7 @@
 @use "breakpoints" as *;
 
 .tabs {
-  // biome-ignore lint/suspicious/noMissingGenericFamilyKeyword: the generic fallback is part of the token
+  // noinspection CssNoGenericFontName : fallback managed by token
   font-family: font-family("base");
   color: color("text-primary");
 }
@@ -12,6 +12,8 @@
   align-items: center;
   overflow-x: auto;
   scrollbar-width: none;
+  padding: space("3xs");
+  margin: calc(-1 * #{space("3xs")});
 
   &[data-variant="pill"] {
     gap: space("xs");

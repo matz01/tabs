@@ -17,7 +17,7 @@ export default meta;
 type Story = StoryObj<typeof Tabs>;
 
 const renderTabs: Story["render"] = (args) => (
-  <Tabs defaultValue="Emails" variant={args.variant}>
+  <Tabs defaultValue="emails" variant={args.variant}>
     <TabList>
       <Tab value="emails">Emails</Tab>
       <Tab value="passwords">Passwords</Tab>

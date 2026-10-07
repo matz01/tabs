@@ -1,4 +1,5 @@
 @use "tokens" as *;
+@use "breakpoints" as *;
 
 .badge {
   // noinspection CssNoGenericFontName : fallback managed by token
@@ -25,7 +26,7 @@
     background-color: color("feedback-negative-bg"); //var(--color-feedback-negative-bg);
   }
 
-  @media (max-width: 768px) {
+  @include mobile {
     padding-block: space("4xs");
   }
 }
