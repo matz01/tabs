@@ -10,7 +10,7 @@ import { cx } from "../../utils/cx";
 import styles from "./Tabs.module.scss";
 import { TabsContext, type TabsVariant } from "./TabsContext";
 
-type selectionProps =
+type SelectionProps =
   | {
       value: string;
       defaultValue?: never;
@@ -20,7 +20,7 @@ type selectionProps =
       value?: never;
     };
 
-export type TabsProps = selectionProps & {
+export type TabsProps = SelectionProps & {
   onValueChange?: (value: string) => void;
   variant?: TabsVariant;
   children: ReactNode;

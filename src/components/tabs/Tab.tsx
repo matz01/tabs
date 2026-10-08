@@ -35,7 +35,12 @@ export const Tab = ({ value, badge, children, className, onClick, onFocus, ...re
       }}
     >
       <span className={styles.label}>{children}</span>
-      {badge && <Badge {...badge} />}
+      {badge && (
+        <>
+          {" "}
+          <Badge {...badge} />
+        </>
+      )}
     </button>
   );
 };
