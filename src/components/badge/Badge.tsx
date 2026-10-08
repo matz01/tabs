@@ -1,4 +1,5 @@
 import type { ComponentPropsWithoutRef } from "react";
+import { cx } from "../../utils/cx";
 import styles from "./Badge.module.scss";
 
 export type BadgeVariant = "neutral" | "positive" | "negative";
@@ -10,11 +11,7 @@ export type BadgeProps = {
 
 export const Badge = ({ label, variant = "neutral", className, ...rest }: BadgeProps) => {
   return (
-    <span
-      {...rest}
-      className={[styles.badge, className].filter(Boolean).join(" ")}
-      data-variant={variant}
-    >
+    <span {...rest} className={cx(styles.badge, className)} data-variant={variant}>
       {label}
     </span>
   );

@@ -11,19 +11,19 @@
   border-radius: space("2xs");
 
   font-size: font-size("body-s");
-  font-weight: font-weight("semibold"); //var(--font-weight-semibold);
-  line-height: line-height("body"); //var(--line-height-body);
-  color: color("text-primary"); //var(--color-text-primary);
+  font-weight: font-weight("semibold");
+  line-height: line-height("body");
+  color: color("text-primary");
   white-space: nowrap;
 
-  background-color: color("feedback-neutral-bg"); //var(--color-feedback-neutral-bg);
+  background-color: color("feedback-neutral-bg");
 
   &[data-variant="positive"] {
-    background-color: color("feedback-positive-bg"); //var(--color-feedback-positive-bg);
+    background-color: color("feedback-positive-bg");
   }
 
   &[data-variant="negative"] {
-    background-color: color("feedback-negative-bg"); //var(--color-feedback-negative-bg);
+    background-color: color("feedback-negative-bg");
   }
 
   @include mobile {

@@ -2,11 +2,10 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Badge } from "./Badge";
 
 const meta = {
-  title: "Badge",
+  title: "Components/Badge",
   component: Badge,
   tags: ["autodocs"],
   args: {
-    // valori di default per tutte le story
     label: "Warning",
   },
   argTypes: {
